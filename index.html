@@ -87,15 +87,16 @@
 <body class="bg-[var(--color-light)] text-[var(--color-dark)] overflow-x-hidden">
 
   <!-- Preview Banner -->
-  <div class="fixed top-0 left-0 right-0 bg-[var(--color-dark)] text-white py-2 px-4 text-center z-50 text-sm">
+  <div id="preview-banner" class="fixed inset-x-0 top-0 bg-[var(--color-dark)] text-white py-2 px-4 text-center z-50 text-sm overflow-x-hidden">
     <span class="mr-2">🚧 Preview Website</span>
     <a href="https://www.vikaph.com/" target="_blank" class="text-[var(--color-secondary)] hover:text-[var(--color-primary)] font-semibold underline">
       Get your website at vikaph.com
     </a>
+    <button id="close-banner" class="ml-4 text-white/70 hover:text-white text-xs underline">Close</button>
   </div>
 
   <!-- Navigation -->
-  <header class="fixed top-8 w-full z-40 bg-white/90 backdrop-blur-sm border-b border-[var(--color-muted)]/20 shadow-sm">
+  <header id="main-nav" class="fixed top-8 inset-x-0 z-40 bg-white/90 backdrop-blur-sm border-b border-[var(--color-muted)]/20 shadow-sm overflow-x-hidden">
     <div class="max-w-6xl mx-auto px-4 py-4">
       <div class="flex items-center justify-between">
         <div class="font-heading text-xl font-bold text-[var(--color-primary)]">
@@ -445,6 +446,16 @@
       link.addEventListener('click', () => {
         mobileMenu.classList.add('hidden');
       });
+    });
+    
+    // Preview banner close functionality
+    const closeBannerBtn = document.getElementById('close-banner');
+    const previewBanner = document.getElementById('preview-banner');
+    const mainNav = document.getElementById('main-nav');
+    
+    closeBannerBtn.addEventListener('click', () => {
+      previewBanner.style.display = 'none';
+      mainNav.style.top = '0';
     });
   </script>
 
